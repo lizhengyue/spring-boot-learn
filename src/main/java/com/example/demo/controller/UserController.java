@@ -18,7 +18,7 @@ public class UserController {
    // @ResponseBody
     public JSONResult hello(){
         User u = new User();
-        u.setName("78917831231");
+        u.setName("uuu");
         return JSONResult.ok(u);
     }
 
