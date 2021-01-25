@@ -14,18 +14,6 @@ public class IMoocExceptionHandler {
 
     public static final String IMOOC_ERROR_VIEW = "error";
 
-//	@ExceptionHandler(value = Exception.class)
-//    public Object errorHandler(HttpServletRequest reqest,
-//    		HttpServletResponse response, Exception e) throws Exception {
-//
-//    	e.printStackTrace();
-//
-//		ModelAndView mav = new ModelAndView();
-//        mav.addObject("exception", e);
-//        mav.addObject("url", reqest.getRequestURL());
-//        mav.setViewName(IMOOC_ERROR_VIEW);
-//        return mav;
-//    }
 
     @ExceptionHandler(value = Exception.class) //这个注释就是让程序出现错误时,执行这个方法
     public Object errorHandler(HttpServletRequest request,
