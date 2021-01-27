@@ -30,3 +30,7 @@
    com.mysql.jdbc.Driver这个在高本版下已经被弃用了
   > 感悟 这种东西随着时间的推移需要多关注官方的文档 不然 死到找不到坟头
   
+ * 事务
+    ```
+   事务开始用@Transactional不起效果 排查半天 发现是数据库引擎是myisam 需要改成innodb 
+   后面需要对@Transactiona里面的参数进行学习

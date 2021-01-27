@@ -7,7 +7,6 @@ import com.example.demo.service.UserService;
 import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import tk.mybatis.mapper.entity.Example;
 
@@ -63,6 +62,13 @@ public class UserServiceImpl implements UserService {
 		u.setEmail("tand");
 		sysUserMapper.updateByPrimaryKeySelective(u);
 	}
+
+    @Override
+    public void deleteById(String id) {
+		SysUser sysUser = new SysUser();
+		sysUser.setId(Long.valueOf(id));
+		sysUserMapper.delete(sysUser);
+    }
 
 
 }

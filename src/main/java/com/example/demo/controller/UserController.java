@@ -90,4 +90,9 @@ public class UserController {
         return JSONResult.ok();
     }
 
+    @RequestMapping("/delete")
+    public JSONResult delete(String id){
+        userService.deleteById(id);
+        return  JSONResult.ok();
+    }
 }
