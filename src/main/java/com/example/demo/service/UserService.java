@@ -28,4 +28,9 @@ public interface UserService {
 
 	List<SysUser> queryCustomer(String id) ;
 
+	/**
+	 * 调试事务
+	 */
+	public  void saveLzy();
+
 }

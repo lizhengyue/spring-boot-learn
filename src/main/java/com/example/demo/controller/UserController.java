@@ -27,7 +27,6 @@ public class UserController {
     private Sid sid;
 
 
-
     @RequestMapping("/hello")
    // @ResponseBody
     public JSONResult hello(){
@@ -83,6 +82,12 @@ public class UserController {
     public JSONResult customer(String id){
         List<SysUser> sysUsers = userService.queryCustomer(id);
         return JSONResult.ok(sysUsers);
+    }
+
+    @RequestMapping("/tans")
+    public JSONResult tans(){
+        userService.saveLzy();
+        return JSONResult.ok();
     }
 
 }

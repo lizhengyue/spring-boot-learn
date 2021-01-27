@@ -7,6 +7,8 @@ import com.example.demo.service.UserService;
 import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 import tk.mybatis.mapper.entity.Example;
 
 import java.util.List;
@@ -47,6 +49,19 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public List<SysUser> queryCustomer(String id) {
 		return  sysUserMapperCustom.queryUserSimplyInfoById(id);
+	}
+
+	@Override
+	@Transactional(rollbackFor = Exception.class)
+	public void saveLzy() {
+		SysUser u = new SysUser();
+		u.setId(3L);
+		u.setName("tran");
+		u.setPassword("trans");
+		sysUserMapper.insert(u);
+		int a = 1/0;
+		u.setEmail("tand");
+		sysUserMapper.updateByPrimaryKeySelective(u);
 	}
 
 
