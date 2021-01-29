@@ -27,13 +27,19 @@ package com.example.demo.utils;
 import tk.mybatis.mapper.common.Mapper;
 import tk.mybatis.mapper.common.MySqlMapper;
 
+
+
 /**
  * 继承自己的MyMapper
- *
- * @author liuzh
- * @since 2015-09-06 21:53
+ * @author Administrator
+ * @param <T>
  */
 public interface MyMapper<T> extends Mapper<T>, MySqlMapper<T> {
 	//TODO
 	//FIXME 特别注意，该接口不能被扫描到，否则会出错
 }
+
+
+//知识点 一个接口可以继承多个接口    但一个类之能继承一个类 接口是不能继承（extends）类的
+//类可以实现(implements)接口的方法 也可以实现多个接口的方法
+
